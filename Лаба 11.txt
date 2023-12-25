@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char inputString[] = "one\n"
+                         "one two\n"
+                         "one two three\n"
+                         "one two three four\n";
+
+    char* word;
+    int count = 0;
+
+    word = strtok(inputString, " \n");
+    while (word != NULL) {
+        if (strlen(word) < 4) {
+            count++;
+        }
+        word = strtok(NULL, " \n");
+    }
+
+    printf("The count of words (length<4): %d\n", count);
+
+    return 0;
+}
